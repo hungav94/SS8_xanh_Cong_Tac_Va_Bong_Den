@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Công tắc và bóng đèn</title>
+    <script src="ElectricLamp.js"></script>
+    <script src="SwitchButton.js"></script>
+</head>
+<body>
+<input type="button" value="Bật" id="btnOnOff" onclick="turn(switchButton)">
+
+<script>
+    let btn = document.getElementById('btnOnOff');
+    let electricLamp = new ElectricLamp(false);
+    let switchButton = new SwitchButton(false, electricLamp);
+    switchButton.connectToLamp(electricLamp);
+
+    function turn() {
+        if (btn.value == 'Bật') {
+            btn.value = 'Tắt';
+            switchButton.connectToLamp(electricLamp);
+        } else {
+            btn.value = 'Bật';
+            switchButton.connectToLamp(electricLamp);
+        }
+    }
+
+</script>
+</body>
+</html>
